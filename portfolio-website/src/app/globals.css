@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 14.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 263 70% 50%;
+    --radius: 0.75rem;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #000000;
+  }
+
+  body {
+    background-color: #000000;
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+  }
+}
+
+/* Custom container class for reliable centering */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* Tabs styling */
+[role="tablist"] {
+  background-color: #3a3a3a !important;
+  border: 1px solid #4a4a4a !important;
+}
+
+[role="tab"][data-state="active"] {
+  background-color: #000000 !important; /* black - blends with page */
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+[role="tab"][data-state="inactive"] {
+  background-color: #3a3a3a !important;
+  color: #d1d5db !important; /* gray-300 for better readability */
+}
+
+/* Target the exact resume card classes */
+.rounded-xl.border.bg-card.text-card-foreground.shadow.border-violet-800 {
+  background-color: rgba(0, 0, 0, 0.7) !important; /* semi-transparent black */
+  border-color: rgba(139, 92, 246, 0.3) !important; /* semi-transparent violet */
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Alternative targeting for bg-card class */
+.bg-card {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Target any card with these combined classes */
+.rounded-xl.border.bg-card {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* CSS-based animations as fallback */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+/* Custom violet colors for consistency */
+.bg-violet-500 {
+  background-color: #8b5cf6 !important;
+}
+
+.hover\:bg-violet-600:hover {
+  background-color: #7c3aed !important;
+}
+
+.text-violet-400 {
+  color: #a78bfa !important;
+}
+
+.border-violet-500 {
+  border-color: #8b5cf6 !important;
+}
+
+.border-violet-800 {
+  border-color: #5b21b6 !important;
+}
+
+.border-violet-400 {
+  border-color: #a78bfa !important;
+}
+
+.hover\:border-violet-400:hover {
+  border-color: #a78bfa !important;
+}
+
+.hover\:bg-violet-950:hover {
+  background-color: #2e1065 !important;
+}
+
+.bg-violet-900 {
+  background-color: #4c1d95 !important;
+}
+
+.hover\:bg-violet-800:hover {
+  background-color: #5b21b6 !important;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7c3aed;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8b5cf6;
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(139, 92, 246, 0.3);
+  color: #f1f5f9;
+}
+
+/* Focus visible styling for accessibility */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #a78bfa, 0 0 0 4px #000000;
+}
+
+/* Sonner toast customization */
+[data-sonner-toaster] {
+  --normal-bg: hsl(var(--card));
+  --normal-border: hsl(var(--border));
+  --normal-text: hsl(var(--card-foreground));
+  --success-bg: hsl(142 76% 36%);
+  --success-border: hsl(142 76% 36%);
+  --success-text: hsl(0 0% 98%);
+  --error-bg: hsl(var(--destructive));
+  --error-border: hsl(var(--destructive));
+  --error-text: hsl(var(--destructive-foreground));
+}
+
+[data-sonner-toast] {
+  border-radius: var(--radius);
+}
+
+/* Dropdown menu customization */
+[data-radix-popper-content-wrapper] {
+  z-index: 50;
+}
+
+/* Particle animation fallback for React 19 compatibility */
+.particles-fallback {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
