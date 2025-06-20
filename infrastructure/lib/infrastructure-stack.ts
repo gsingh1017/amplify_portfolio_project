@@ -11,7 +11,7 @@ export class InfrastructureStack extends cdk.Stack {
     const amplifyRole = new cdk.aws_iam.Role(this, 'AmplifyRole', {
       assumedBy: new cdk.aws_iam.ServicePrincipal('amplify.amazonaws.com'),
       managedPolicies: [
-        cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AmplifyBackendDeployFullAccess'),
+        cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AdministratorAccess-Amplify'),
       ]
     });
 
