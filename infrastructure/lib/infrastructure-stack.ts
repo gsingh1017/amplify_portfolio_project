@@ -7,13 +7,14 @@ export class InfrastructureStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // IAM Role for Amplify
+    /* IAM Role for Amplify
     const amplifyRole = new cdk.aws_iam.Role(this, 'AmplifyRole', {
       assumedBy: new cdk.aws_iam.ServicePrincipal('amplify.amazonaws.com'),
       managedPolicies: [
         cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AdministratorAccess-Amplify'),
       ]
     });
+    */
 
     // Amplify Application
     const amplifyApp = new amplify.App(this, 'PortfolioWebsiteApplication', {
@@ -26,7 +27,7 @@ export class InfrastructureStack extends cdk.Stack {
       }),
 
       // Attach IAM Role
-      role: amplifyRole,
+      // role: amplifyRole,
 
       // Build Specification
       buildSpec: codebuild.BuildSpec.fromObjectToYaml({
