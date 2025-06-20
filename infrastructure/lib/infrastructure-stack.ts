@@ -43,7 +43,7 @@ export class InfrastructureStack extends cdk.Stack {
             build: {
               commands: [
                 'echo "Starting NextJS build phase..."',
-                'npm run build-and-export',
+                'npm run build',
                 'echo "Build completed successfully!"',
               ],
             },
