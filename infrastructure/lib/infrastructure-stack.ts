@@ -37,7 +37,7 @@ export class InfrastructureStack extends cdk.Stack {
               commands: [
                 'echo "Starting pre-build phase..."',
                 'cd portfolio-website',
-                'npm install',
+                'npm ci --no-audit --no-fund',
               ],
             },
             build: {
