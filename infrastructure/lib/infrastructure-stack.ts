@@ -1,4 +1,5 @@
 import * as cdk from 'aws-cdk-lib';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import * as amplify from '@aws-cdk/aws-amplify-alpha';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 
@@ -6,6 +7,14 @@ import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 export class InfrastructureStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    // IAM Role for Amplify
+    const amplifyRole = new cdk.aws_iam.Role(this, 'AmplifyRole', {
+      assumedBy: new cdk.aws_iam.ServicePrincipal('amplify.amazonaws.com'),
+      managedPolicies: [
+        cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AdministratorAccess-Amplify'),
+      ]
+    });
 
     // Amplify Application
     const amplifyApp = new amplify.App(this, 'PortfolioWebsiteApplication', {
@@ -16,6 +25,9 @@ export class InfrastructureStack extends cdk.Stack {
         repository: 'amplify_portfolio_project',
         oauthToken: cdk.SecretValue.secretsManager('github-token-portfolio'),
       }),
+
+      // Attach IAM Role
+      role: amplifyRole,
 
       // Build Specification
       buildSpec: codebuild.BuildSpec.fromObjectToYaml({
@@ -54,6 +66,6 @@ export class InfrastructureStack extends cdk.Stack {
     const mainBranch = amplifyApp.addBranch('main', {
       autoBuild: true,
     });
-    
+
   }
 }
