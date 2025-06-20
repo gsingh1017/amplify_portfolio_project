@@ -1,5 +1,4 @@
 import * as cdk from 'aws-cdk-lib';
-import * as iam from 'aws-cdk-lib/aws-iam';
 import * as amplify from '@aws-cdk/aws-amplify-alpha';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 
@@ -23,7 +22,7 @@ export class InfrastructureStack extends cdk.Stack {
       sourceCodeProvider: new amplify.GitHubSourceCodeProvider({
         owner: 'gsingh1017',
         repository: 'amplify_portfolio_project',
-        oauthToken: cdk.SecretValue.secretsManager('github-token-portfolio'),
+        oauthToken: cdk.SecretValue.secretsManager('github-token-portfolio-website'),
       }),
 
       // Attach IAM Role
