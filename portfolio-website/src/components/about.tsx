@@ -54,13 +54,13 @@ export default function About() {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-4 text-violet-400">Gurnik Singh</h3>
                 <p className="text-slate-50 mb-6">
-                  I'm an AWS Cloud Engineer with 4 years of client-facing experience in fintech, now specializing in AWS
+                  I&apos;m an AWS Cloud Engineer with 4 years of client-facing experience in fintech, now specializing in AWS
                   Cloud Engineering. With hands-on experience designing secure, highly available, and compliant
-                  infrastructures, I've deployed a strong foundation in IAM security frameworks, infrastructure
+                  infrastructures, I&apos;ve deployed a strong foundation in IAM security frameworks, infrastructure
                   automation, and serverless architecture.
                 </p>
                 <p className="text-slate-50 mb-6">
-                  I'm passionate about cloud security, automation, and delivering resilient cloud solutions that meet
+                  I&apos;m passionate about cloud security, automation, and delivering resilient cloud solutions that meet
                   real-world compliance and performance requirements. My goal is to continue growing my skills in both
                   AI/ML and solutions architecture to create impactful solutions.
                 </p>

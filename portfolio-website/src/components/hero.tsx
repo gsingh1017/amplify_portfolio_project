@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-            Hi, I'm <span className="text-violet-400">Gurnik Singh</span>
+            Hi, I&apos;m <span className="text-violet-400">Gurnik Singh</span>
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-medium mb-6 text-violet-400">AWS Certified Cloud Engineer</h2>
