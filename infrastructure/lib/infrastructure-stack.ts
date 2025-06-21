@@ -50,7 +50,7 @@ export class InfrastructureStack extends cdk.Stack {
             },
           },
           artifacts: {
-            baseDirectory: 'portfolio-website/out',
+            baseDirectory: 'portfolio-website/.next',
             files: ['**/*'],
           },
           cache: {
