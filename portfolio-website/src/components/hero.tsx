@@ -52,7 +52,7 @@ export default function Hero() {
 
     const createParticles = () => {
       const particles: Particle[] = []
-      const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000))
+      const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 8000))
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -85,8 +85,7 @@ export default function Hero() {
         particle.y = Math.max(0, Math.min(canvas.height, particle.y))
       })
 
-      // Draw connections
-      ctx.strokeStyle = "rgba(168, 85, 247, 0.1)"
+      // Draw connections with brighter violet color
       ctx.lineWidth = 1
 
       for (let i = 0; i < particles.length; i++) {
@@ -96,8 +95,8 @@ export default function Hero() {
           const distance = Math.sqrt(dx * dx + dy * dy)
 
           if (distance < maxDistance) {
-            const opacity = (1 - distance / maxDistance) * 0.1
-            ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`
+            const opacity = (1 - distance / maxDistance) * 0.4
+            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
@@ -106,8 +105,8 @@ export default function Hero() {
         }
       }
 
-      // Draw particles
-      ctx.fillStyle = "rgba(168, 85, 247, 0.4)"
+      // Draw particles with brighter violet color
+      ctx.fillStyle = "rgba(139, 92, 246, 0.6)"
       particles.forEach((particle) => {
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, 1.5, 0, Math.PI * 2)
