@@ -38,8 +38,16 @@ export default function Hero() {
     if (!ctx) return
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      // Ensure canvas never exceeds viewport width
+      const maxWidth = Math.min(window.innerWidth, document.documentElement.clientWidth)
+      const maxHeight = Math.min(window.innerHeight, document.documentElement.clientHeight)
+
+      canvas.width = maxWidth
+      canvas.height = maxHeight
+
+      // Also set CSS dimensions to prevent overflow
+      canvas.style.width = maxWidth + "px"
+      canvas.style.height = maxHeight + "px"
     }
 
     const createParticles = () => {
@@ -136,7 +144,10 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Constellation Animation Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 max-w-full overflow-hidden"
+      />
 
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">

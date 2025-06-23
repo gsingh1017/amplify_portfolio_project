@@ -110,10 +110,6 @@
   color: #d1d5db !important; /* gray-300 for better readability */
 }
 
-[role="tab"]:hover {
-  /* Remove all hover effects - tabs should not change on hover */
-}
-
 /* Target the exact resume card classes */
 .rounded-xl.border.bg-card.text-card-foreground.shadow.border-violet-800 {
   background-color: rgba(0, 0, 0, 0.7) !important; /* semi-transparent black */
