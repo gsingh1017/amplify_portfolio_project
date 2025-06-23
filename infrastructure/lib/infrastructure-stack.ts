@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import * as amplify from '@aws-cdk/aws-amplify-alpha';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
+import * as route53 from 'aws-cdk-lib/aws-route53';
 
 
 export class InfrastructureStack extends cdk.Stack {
@@ -51,9 +52,23 @@ export class InfrastructureStack extends cdk.Stack {
       }),
     });
 
+    // Autobuild main branch
     const mainBranch = amplifyApp.addBranch('main', {
       autoBuild: true,
     });
 
+    // Add Route 53 Domain
+    amplifyApp.addDomain('gurnik-singh.com', {
+      subDomains: [
+        {
+          branch: mainBranch,
+          prefix: '',
+        },
+        {
+          branch: mainBranch,
+          prefix: 'www',
+        },
+      ],
+    });
   }
 }
