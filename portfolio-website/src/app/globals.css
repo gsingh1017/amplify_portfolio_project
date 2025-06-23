@@ -46,34 +46,6 @@
   }
 }
 
-/* DEBUGGING: Add colored borders to identify overflow sources */
-/* Remove these after identifying the issue */
-@media (max-width: 768px) {
-  * {
-    outline: 1px solid rgba(255, 0, 0, 0.1) !important;
-  }
-
-  .container {
-    outline: 2px solid rgba(0, 255, 0, 0.5) !important;
-  }
-
-  section {
-    outline: 2px solid rgba(0, 0, 255, 0.5) !important;
-  }
-
-  canvas {
-    outline: 3px solid rgba(255, 255, 0, 0.8) !important;
-  }
-
-  .max-w-3xl,
-  .max-w-2xl,
-  .max-w-4xl,
-  .max-w-6xl,
-  .max-w-7xl {
-    outline: 2px solid rgba(255, 0, 255, 0.5) !important;
-  }
-}
-
 /* Custom container class for reliable centering */
 .container {
   width: 100%;
