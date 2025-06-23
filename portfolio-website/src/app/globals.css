@@ -93,7 +93,7 @@
   }
 }
 
-/* Tabs styling */
+/* Fix tabs styling - active tab blends with black background */
 [role="tablist"] {
   background-color: #3a3a3a !important;
   border: 1px solid #4a4a4a !important;
@@ -108,6 +108,10 @@
 [role="tab"][data-state="inactive"] {
   background-color: #3a3a3a !important;
   color: #d1d5db !important; /* gray-300 for better readability */
+}
+
+[role="tab"]:hover {
+  /* Remove all hover effects - tabs should not change on hover */
 }
 
 /* Target the exact resume card classes */
@@ -250,17 +254,8 @@
   z-index: 50;
 }
 
-/* Particle animation fallback for React 19 compatibility */
-.particles-fallback {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
+/* Constellation animation styles - optimized for Tailwind v4 */
+@keyframes constellation-pulse {
   0%,
   100% {
     opacity: 0.3;
@@ -268,4 +263,94 @@
   50% {
     opacity: 0.6;
   }
+}
+
+.constellation-fallback {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+  animation: constellation-pulse 6s ease-in-out infinite;
+}
+
+/* Ensure proper z-index stacking for canvas animations */
+.canvas-animation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 10;
+}
+
+/* Performance optimizations for animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Smooth transitions for better performance */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* TAILWIND V4 FIXES */
+
+/* Project card border hover - Tailwind v4 compatible */
+.project-card {
+  border: 1px solid #5b21b6; /* violet-800 */
+  transition: border-color 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: #a78bfa !important; /* violet-400 */
+}
+
+/* Project button styling - Tailwind v4 compatible */
+.project-button-outline {
+  border: 1px solid #a78bfa; /* violet-400 */
+  background-color: transparent;
+  color: #f1f5f9; /* slate-50 */
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.project-button-outline:hover {
+  background-color: #2e1065 !important; /* violet-950 */
+  color: #f1f5f9 !important;
+}
+
+.project-button-solid {
+  background-color: #8b5cf6; /* violet-500 */
+  color: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.project-button-solid:hover {
+  background-color: #7c3aed !important; /* violet-600 */
+  color: #ffffff !important;
+}
+
+/* Ensure buttons have consistent sizing */
+.project-button-outline,
+.project-button-solid {
+  min-height: 36px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
 }

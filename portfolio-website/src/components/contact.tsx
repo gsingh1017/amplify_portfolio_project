@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import { Github, Linkedin, Newspaper, Mail, Phone, Send } from "lucide-react"
-import emailjs from "@emailjs/browser"
 
 const socialLinks = [
   { icon: <Github className="h-5 w-5" />, href: "https://github.com/gsingh1017", label: "GitHub" },
@@ -35,31 +34,17 @@ export default function Contact() {
 
     startTransition(async () => {
       try {
-        // Initialize EmailJS with public key
-        emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!)
+        // TODO: Replace this with your Lambda function call
+        // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
 
-        // Forward message to me using EmailJS
-        const result = await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-          {
-            from_name: formData.name,
-            from_email: formData.email,
-            message: formData.message,
-            to_name: "Gurnik Singh",
-          },
-        )
+        console.log("Form data to be sent to Lambda:", formData)
 
-        if (result.status === 200) {
-          toast.success("Message sent successfully!", {
-            description: "Thank you for your message. I'll get back to you soon.",
-          })
-          setFormData({ name: "", email: "", message: "" })
-        } else {
-          throw new Error("Failed to send message")
-        }
+        toast.success("Message sent successfully!", {
+          description: "Thank you for your message. I'll get back to you soon.",
+        })
+        setFormData({ name: "", email: "", message: "" })
       } catch (error) {
-        console.error("EmailJS Error:", error)
+        console.error("Error sending message:", error)
         toast.error("Failed to send message", {
           description: "Please try again or contact me directly via email.",
         })

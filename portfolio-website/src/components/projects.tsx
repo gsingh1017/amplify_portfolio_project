@@ -58,7 +58,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="w-full"
             >
-              <Card className="h-full overflow-hidden group border-violet-800 hover:border-violet-400 transition-colors">
+              <Card className="h-full overflow-hidden group project-card">
                 <div className="relative h-56 overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
@@ -84,13 +84,13 @@ export default function Projects() {
                   </div>
                 </CardContent>
                 <CardFooter className="flex justify-between">
-                  <Button variant="outline" size="sm" className="gap-2 border-violet-400 hover:bg-violet-950" asChild>
+                  <Button variant="outline" size="sm" className="gap-2 project-button-outline" asChild>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4" />
                       Code
                     </a>
                   </Button>
-                  <Button size="sm" className="gap-2 bg-violet-500 hover:bg-violet-600" asChild>
+                  <Button size="sm" className="gap-2 project-button-solid" asChild>
                     <a href={project.medium} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4" />
                       Medium
