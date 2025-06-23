@@ -51,11 +51,9 @@ export default function Navbar() {
         // Always show navbar on mobile when scrolled
         "md:block",
         scrolled && "block",
-        // Prevent horizontal overflow
-        "max-w-full overflow-hidden",
       )}
     >
-      <div className="container flex items-center justify-between max-w-full">
+      <div className="container flex items-center justify-between">
         <Link href="#home" className="text-xl font-bold">
           <span className="text-violet-400">Gurnik</span> <span className="text-foreground">Singh</span>
         </Link>

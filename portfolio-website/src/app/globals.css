@@ -46,7 +46,13 @@
   }
 }
 
-/* Custom container class for reliable centering */
+/* Prevent navbar horizontal overflow */
+header[class*="fixed"] {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Container responsive breakpoints */
 .container {
   width: 100%;
   margin-left: auto;
@@ -93,43 +99,41 @@
   }
 }
 
-/* Fix tabs styling - active tab blends with black background */
+/* Resume tabs styling */
 [role="tablist"] {
   background-color: #3a3a3a !important;
   border: 1px solid #4a4a4a !important;
 }
 
 [role="tab"][data-state="active"] {
-  background-color: #000000 !important; /* black - blends with page */
+  background-color: #000000 !important;
   color: #ffffff !important;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
 }
 
 [role="tab"][data-state="inactive"] {
   background-color: #3a3a3a !important;
-  color: #d1d5db !important; /* gray-300 for better readability */
+  color: #d1d5db !important;
 }
 
-/* Target the exact resume card classes */
+/* Resume card styling */
 .rounded-xl.border.bg-card.text-card-foreground.shadow.border-violet-800 {
-  background-color: rgba(0, 0, 0, 0.7) !important; /* semi-transparent black */
-  border-color: rgba(139, 92, 246, 0.3) !important; /* semi-transparent violet */
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
   backdrop-filter: blur(4px) !important;
 }
 
-/* Alternative targeting for bg-card class */
 .bg-card {
   background-color: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(4px) !important;
 }
 
-/* Target any card with these combined classes */
 .rounded-xl.border.bg-card {
   background-color: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(4px) !important;
 }
 
-/* CSS-based animations as fallback */
+/* Fade in animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -157,7 +161,7 @@
   animation: fadeIn 0.8s ease-out 0.6s both;
 }
 
-/* Custom violet colors for consistency */
+/* Violet color overrides */
 .bg-violet-500 {
   background-color: #8b5cf6 !important;
 }
@@ -198,7 +202,7 @@
   background-color: #5b21b6 !important;
 }
 
-/* Custom scrollbar styling */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -216,19 +220,19 @@
   background-color: #8b5cf6;
 }
 
-/* Selection styling */
+/* Text selection */
 ::selection {
   background-color: rgba(139, 92, 246, 0.3);
   color: #f1f5f9;
 }
 
-/* Focus visible styling for accessibility */
+/* Focus styling */
 *:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px #a78bfa, 0 0 0 4px #000000;
 }
 
-/* Sonner toast customization */
+/* Toast notifications */
 [data-sonner-toaster] {
   --normal-bg: hsl(var(--card));
   --normal-border: hsl(var(--border));
@@ -245,12 +249,12 @@
   border-radius: var(--radius);
 }
 
-/* Dropdown menu customization */
+/* Dropdown menus */
 [data-radix-popper-content-wrapper] {
   z-index: 50;
 }
 
-/* Constellation animation styles - optimized for Tailwind v4 */
+/* Constellation animation */
 @keyframes constellation-pulse {
   0%,
   100% {
@@ -270,7 +274,7 @@
   animation: constellation-pulse 6s ease-in-out infinite;
 }
 
-/* Ensure proper z-index stacking for canvas animations */
+/* Canvas animations */
 .canvas-animation {
   position: absolute;
   inset: 0;
@@ -285,34 +289,31 @@
   z-index: 10;
 }
 
-/* Performance optimizations for animations */
+/* Performance optimizations */
 .gpu-accelerated {
   transform: translateZ(0);
   will-change: transform;
 }
 
-/* Smooth transitions for better performance */
 .smooth-transition {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* TAILWIND V4 FIXES */
-
-/* Project card border hover - Tailwind v4 compatible */
+/* Project cards */
 .project-card {
-  border: 1px solid #5b21b6; /* violet-800 */
+  border: 1px solid #5b21b6;
   transition: border-color 0.3s ease;
 }
 
 .project-card:hover {
-  border-color: #a78bfa !important; /* violet-400 */
+  border-color: #a78bfa !important;
 }
 
-/* Project button styling - Tailwind v4 compatible */
+/* Project buttons */
 .project-button-outline {
-  border: 1px solid #a78bfa; /* violet-400 */
+  border: 1px solid #a78bfa;
   background-color: transparent;
-  color: #f1f5f9; /* slate-50 */
+  color: #f1f5f9;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -321,12 +322,12 @@
 }
 
 .project-button-outline:hover {
-  background-color: #2e1065 !important; /* violet-950 */
+  background-color: #2e1065 !important;
   color: #f1f5f9 !important;
 }
 
 .project-button-solid {
-  background-color: #8b5cf6; /* violet-500 */
+  background-color: #8b5cf6;
   color: #ffffff;
   border: none;
   transition: all 0.3s ease;
@@ -337,11 +338,10 @@
 }
 
 .project-button-solid:hover {
-  background-color: #7c3aed !important; /* violet-600 */
+  background-color: #7c3aed !important;
   color: #ffffff !important;
 }
 
-/* Ensure buttons have consistent sizing */
 .project-button-outline,
 .project-button-solid {
   min-height: 36px;
