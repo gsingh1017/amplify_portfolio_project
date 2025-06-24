@@ -34,14 +34,26 @@ export default function Contact() {
 
     startTransition(async () => {
       try {
-        // TODO: Replace this with your Lambda function call
-        // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
 
-        console.log("Form data to be sent to Lambda:", formData)
+        // Validate form data
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+
+        // Error handling
+        if (!response.ok) {
+          throw new Error("Error: ${response.status} ${response.statusText}")
+        }
 
         toast.success("Message sent successfully!", {
-          description: "Thank you for your message. I'll get back to you soon.",
+          description: "Thank you for your message.",
         })
+
+        // Reset form data
         setFormData({ name: "", email: "", message: "" })
       } catch (error) {
         console.error("Error sending message:", error)
