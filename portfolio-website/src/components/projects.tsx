@@ -9,7 +9,18 @@ import { ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
-    id: 1,
+    id: 3,
+    title: "Cloud-Native Portfolio Website: A Modern Approach with Next.js",
+    description:
+      "This project walks you through building a modern, automated, cloud-native portfolio website, like this one.",
+    image: "/images/project_3-image.jpg",
+    tech: ["AWS CDK", "Amplify", "Route 53"],
+    github: "https://github.com/gsingh1017/amplify_portfolio_project",
+    medium:
+      "https://medium.com/@gurniksingh/cloud-native-portfolio-website-a-modern-approach-with-next-js-aws-amplify-cdk-26c34cb42752",
+  },
+  {
+    id: 2,
     title: "Modernizing AWS Infrastructure with CDK & TypeScript",
     description:
       "Transitioning infrastructure from a legacy manual setup to a robust, automated, and secure system built with AWS CDK & TypeScript.",
@@ -20,7 +31,7 @@ const projects = [
       "https://medium.com/@gurniksingh/modernizing-aws-infrastructure-with-cdk-a-patient-portal-case-study-8193371a4855",
   },
   {
-    id: 2,
+    id: 1,
     title: "Ditching the AWS Root Account in a Live Startup Environment",
     description:
       "Solving a root account nightmare and establishing a secure, well-governed AWS environment using Terraform.",
