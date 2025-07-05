@@ -9,12 +9,23 @@ import { ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
+    id: 4,
+    title: "Building a Robust, Serverless Contact Form with Terraform",
+    description:
+      "Discover how a scalable AWS serverless architecture transformed a company's customer engagement by replacing outdated email links with an automated, robust contact form.",
+    image: "/images/project_4-image.jpg",
+    tech: ["S3", "API Gateway", "Lambda", "IAM", "DynamoDB", "SES", "CloudWatch", "SNS", "Terraform"],
+    github: "https://github.com/gsingh1017/serverless_contact_form_project",
+    medium:
+      "https://medium.com/@gurniksingh/project-building-a-robust-serverless-contact-form-for-premier-mortgage-solutions-b760ac2b501e",
+  },
+  {
     id: 3,
     title: "Cloud-Native Portfolio Website: A Modern Approach with Next.js",
     description:
       "This project walks you through building a modern, automated, cloud-native portfolio website, like this one.",
     image: "/images/project_3-image.jpg",
-    tech: ["AWS CDK", "Amplify", "Route 53"],
+    tech: ["AWS CDK", "TypeScript", "Amplify", "Route 53"],
     github: "https://github.com/gsingh1017/amplify_portfolio_project",
     medium:
       "https://medium.com/@gurniksingh/cloud-native-portfolio-website-a-modern-approach-with-next-js-aws-amplify-cdk-26c34cb42752",
