@@ -12,7 +12,7 @@ const projects = [
     id: 4,
     title: "Building a Robust, Serverless Contact Form with Terraform",
     description:
-      "Discover how a scalable AWS serverless architecture transformed a company's customer engagement by replacing outdated email links with an automated, robust contact form.",
+      "Discover how a scalable AWS serverless architecture transformed customer engagement by replacing outdated email links.",
     image: "/images/project_4-image.jpg",
     tech: ["S3", "API Gateway", "Lambda", "IAM", "DynamoDB", "SES", "CloudWatch", "SNS", "Terraform"],
     github: "https://github.com/gsingh1017/serverless_contact_form_project",
